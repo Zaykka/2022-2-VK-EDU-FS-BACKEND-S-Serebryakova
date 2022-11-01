@@ -23,6 +23,7 @@ class TestTicTacGame(unittest.TestCase):
     def test_validate_input(self):
         self.game.create_board()
         self.assertEqual(self.game.validate_input(1, 1), True)
+        self.assertEqual(self.game.validate_input(1, 11), False)
 
     def test_swap_player_turn(self):
         self.game.create_board()

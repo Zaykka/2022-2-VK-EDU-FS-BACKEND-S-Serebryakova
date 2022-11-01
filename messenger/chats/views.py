@@ -78,6 +78,7 @@ def edit_chat(request, pk):
     chat_model.save()
     return JsonResponse({'edited': True})
 
+
 @require_http_methods(["POST"])
 def delete_chat(request, pk):
     chat_model = get_object_or_404(Chat, id=pk)

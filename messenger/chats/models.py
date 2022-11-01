@@ -28,7 +28,6 @@ class Chat(models.Model):
         ordering = ('name',)
 
 
-
 class Message(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.SET_NULL, null=True, verbose_name='чат')
     sent_from = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_from_messages', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='отправитель')
