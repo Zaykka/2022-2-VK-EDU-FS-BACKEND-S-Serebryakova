@@ -1,8 +1,11 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.vscode/
+messenger/photos/*
 *.py[cod]
 *$py.class
-
+curl_scripts.sh
+*.html
 # C extensions
 *.so
 
