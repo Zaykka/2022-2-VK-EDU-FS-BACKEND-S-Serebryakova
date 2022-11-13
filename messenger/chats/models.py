@@ -1,4 +1,3 @@
-from django.conf.global_settings import AUTH_USER_MODEL
 from django.conf import settings
 from django.db import models
 
@@ -31,9 +30,9 @@ class Chat(models.Model):
 class Message(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.SET_NULL, null=True, verbose_name='чат')
     sent_from = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_from_messages', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='отправитель')
-    #sent_to = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_to_messages', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='получатель')
     message = models.TextField(blank=True, null=True, default='', verbose_name='сообщение')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='время создания')
+    is_read = models.BooleanField(default=False, verbose_name='прочитано')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, verbose_name='фото')
 
     class Meta:
